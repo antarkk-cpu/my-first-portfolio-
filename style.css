@@ -964,6 +964,14 @@ textarea {
     z-index: 1;
 }
 
+.about-photo {
+    width: 100%;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    position: relative;
+}
+
 .about-experience-badge {
     position: absolute;
     bottom: -20px;
