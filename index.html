@@ -1,104 +1,855 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Antar Karmaker | Portfolio</title>
+    <meta name="description" content="Antar Karmaker - Professional WordPress & Theme Developer. 2+ years of experience building responsive, fast, and user-friendly websites.">
+    <meta name="keywords" content="WordPress Developer, Theme Developer, Web Developer, Custom WordPress Themes, Website Development">
+    <meta name="author" content="Antar Karmaker">
+    <meta property="og:title" content="Antar Karmaker | WordPress & Theme Developer">
+    <meta property="og:description" content="Professional WordPress & Theme Developer with 2+ years of experience.">
+    <meta property="og:type" content="website">
+    <title>Antar Karmaker | WordPress & Theme Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Header -->
-    <header>
-        <nav>
-            <h2 class="logo">Antar<span>.Dev</span></h2>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
+    <!-- Loader -->
+    <div id="loader" class="loader">
+        <div class="loader-inner">
+            <div class="loader-bar"></div>
+            <span class="loader-text">Antar<span>.Dev</span></span>
+        </div>
+    </div>
+
+    <!-- Back to Top -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Theme Toggle -->
+    <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Navigation -->
+    <header id="navbar" class="navbar">
+        <nav class="nav-container">
+            <a href="#home" class="logo">Antar<span>.Dev</span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
+            <a href="#contact" class="nav-cta">Hire Me</a>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </nav>
     </header>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>Hi, I'm <span>Antar Karmaker</span></h1>
-            <h3>WordPress & Theme Developer</h3>
-            <p>
-                Passionate Web Developer with 2 years of experience in
-                WordPress development, custom theme creation, and modern website design.
-            </p>
-
-            <a href="#contact" class="btn">Hire Me</a>
+        <div class="hero-bg-effects">
+            <div class="hero-orb hero-orb-1"></div>
+            <div class="hero-orb hero-orb-2"></div>
+            <div class="hero-orb hero-orb-3"></div>
+            <div class="hero-grid"></div>
+        </div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge reveal">
+                    <span class="badge-dot"></span>
+                    Available for Freelance Work
+                </div>
+                <h1 class="hero-title reveal">
+                    Hi, I'm <span class="gradient-text">Antar Karmaker</span>
+                </h1>
+                <h2 class="hero-subtitle reveal">
+                    <span class="typing-wrapper">
+                        <span class="typing-text" id="typingText"></span>
+                        <span class="typing-cursor">|</span>
+                    </span>
+                </h2>
+                <p class="hero-description reveal">
+                    Passionate WordPress Developer with 2+ years of experience crafting 
+                    responsive, high-performance websites and custom themes that drive 
+                    business growth and deliver exceptional user experiences.
+                </p>
+                <div class="hero-buttons reveal">
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i>
+                        Hire Me
+                    </a>
+                    <a href="#" class="btn btn-outline" id="downloadCV">
+                        <i class="fas fa-download"></i>
+                        Download CV
+                    </a>
+                </div>
+                <div class="hero-social reveal">
+                    <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image reveal">
+                <div class="hero-image-wrapper">
+                    <div class="hero-image-glow"></div>
+                    <div class="hero-image-glow hero-image-glow-2"></div>
+                    <div class="hero-image-ring"></div>
+                    <div class="hero-image-ring hero-image-ring-2"></div>
+                    <div class="hero-image-frame">
+                        <img src="image/hero section professional photo.png" alt="Antar Karmaker - WordPress & Theme Developer" class="hero-photo" loading="eager">
+                    </div>
+                    <div class="hero-badge-float hero-badge-float-1">
+                        <i class="fab fa-html5"></i>
+                        <span>HTML</span>
+                    </div>
+                    <div class="hero-badge-float hero-badge-float-2">
+                        <i class="fab fa-css3-alt"></i>
+                        <span>CSS</span>
+                    </div>
+                    <div class="hero-badge-float hero-badge-float-3">
+                        <i class="fab fa-js-square"></i>
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="hero-badge-float hero-badge-float-4">
+                        <i class="fab fa-wordpress"></i>
+                        <span>WordPress</span>
+                    </div>
+                    <div class="hero-badge-float hero-badge-float-5">
+                        <i class="fab fa-php"></i>
+                        <span>PHP</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <a href="#about" class="scroll-indicator" aria-label="Scroll down">
+                <span class="scroll-mouse">
+                    <span class="scroll-wheel"></span>
+                </span>
+                <span class="scroll-text">Scroll Down</span>
+            </a>
         </div>
     </section>
 
-    <!-- About -->
+    <!-- About Section -->
     <section class="about" id="about">
-        <h2>About Me</h2>
-
-        <p>
-            I am Antar Karmaker, a dedicated WordPress Developer with 2 years
-            of experience building responsive, fast, and user-friendly websites.
-            I specialize in custom WordPress theme development and website customization.
-        </p>
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">About Me</span>
+                <h2 class="section-title">Turning Ideas Into <span class="gradient-text">Digital Reality</span></h2>
+                <p class="section-subtitle">Get to know more about me, my background, and what drives me to create exceptional web experiences.</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-image reveal">
+                    <div class="about-image-wrapper">
+                        <div class="about-image-placeholder">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="about-experience-badge">
+                            <span class="exp-number">2+</span>
+                            <span class="exp-text">Years of<br>Experience</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-content reveal">
+                    <h3 class="about-name">Antar Karmaker</h3>
+                    <p class="about-role">WordPress & Theme Developer</p>
+                    <p class="about-text">
+                        I am a dedicated WordPress Developer with over 2 years of hands-on 
+                        experience building responsive, fast, and user-friendly websites. I 
+                        specialize in custom WordPress theme development, website customization, 
+                        and delivering pixel-perfect designs that align with clients' brand identities.
+                    </p>
+                    <p class="about-text">
+                        My passion lies in transforming complex requirements into clean, maintainable 
+                        code and creating websites that not only look stunning but also perform 
+                        exceptionally across all devices and browsers.
+                    </p>
+                    <div class="about-highlights">
+                        <div class="highlight-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Custom WordPress Themes</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Responsive & Mobile-First</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>SEO Optimized</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Performance Focused</span>
+                        </div>
+                    </div>
+                    <div class="about-info-grid">
+                        <div class="about-info-item">
+                            <span class="info-label">Name:</span>
+                            <span class="info-value">Antar Karmaker</span>
+                        </div>
+                        <div class="about-info-item">
+                            <span class="info-label">Email:</span>
+                            <span class="info-value">antarkk7110@gmail.com</span>
+                        </div>
+                        <div class="about-info-item">
+                            <span class="info-label">Phone:</span>
+                            <span class="info-value">01571185580</span>
+                        </div>
+                        <div class="about-info-item">
+                            <span class="info-label">Location:</span>
+                            <span class="info-value">Bangladesh</span>
+                        </div>
+                    </div>
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-comments"></i>
+                        Let's Talk
+                    </a>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- Skills -->
+    <!-- Skills Section -->
     <section class="skills" id="skills">
-        <h2>My Skills</h2>
-
-        <div class="skill-box">
-            <div class="card">HTML5</div>
-            <div class="card">CSS3</div>
-            <div class="card">WordPress</div>
-            <div class="card">Theme Development</div>
-            <div class="card">Responsive Design</div>
-            <div class="card">Website Customization</div>
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">My Skills</span>
+                <h2 class="section-title">Technologies I <span class="gradient-text">Work With</span></h2>
+                <p class="section-subtitle">A showcase of my technical expertise and the tools I use to bring ideas to life.</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card reveal" data-skill="95">
+                    <div class="skill-icon">
+                        <i class="fab fa-html5"></i>
+                    </div>
+                    <h3 class="skill-name">HTML5</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-progress="95">
+                            <span class="skill-percent">95%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-card reveal" data-skill="90">
+                    <div class="skill-icon">
+                        <i class="fab fa-css3-alt"></i>
+                    </div>
+                    <h3 class="skill-name">CSS3</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-progress="90">
+                            <span class="skill-percent">90%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-card reveal" data-skill="80">
+                    <div class="skill-icon">
+                        <i class="fab fa-js-square"></i>
+                    </div>
+                    <h3 class="skill-name">JavaScript</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-progress="80">
+                            <span class="skill-percent">80%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-card reveal" data-skill="92">
+                    <div class="skill-icon">
+                        <i class="fab fa-wordpress"></i>
+                    </div>
+                    <h3 class="skill-name">WordPress</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-progress="92">
+                            <span class="skill-percent">92%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-card reveal" data-skill="88">
+                    <div class="skill-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3 class="skill-name">Theme Development</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-progress="88">
+                            <span class="skill-percent">88%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-card reveal" data-skill="90">
+                    <div class="skill-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="skill-name">Responsive Design</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-progress="90">
+                            <span class="skill-percent">90%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-card reveal" data-skill="85">
+                    <div class="skill-icon">
+                        <i class="fas fa-sliders-h"></i>
+                    </div>
+                    <h3 class="skill-name">Website Customization</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-progress="85">
+                            <span class="skill-percent">85%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-card reveal" data-skill="82">
+                    <div class="skill-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3 class="skill-name">SEO</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-progress="82">
+                            <span class="skill-percent">82%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Services -->
+    <!-- Services Section -->
     <section class="services" id="services">
-        <h2>Services</h2>
-
-        <div class="service-container">
-
-            <div class="service-card">
-                <h3>WordPress Website</h3>
-                <p>Professional WordPress website design and development.</p>
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Services</span>
+                <h2 class="section-title">What I <span class="gradient-text">Offer</span></h2>
+                <p class="section-subtitle">Professional web development services tailored to elevate your online presence and drive results.</p>
             </div>
-
-            <div class="service-card">
-                <h3>Theme Development</h3>
-                <p>Custom WordPress theme development based on client requirements.</p>
+            <div class="services-grid">
+                <div class="service-card reveal">
+                    <div class="service-icon">
+                        <i class="fab fa-wordpress"></i>
+                    </div>
+                    <h3 class="service-title">WordPress Development</h3>
+                    <p class="service-description">
+                        Complete WordPress website development from scratch, including setup, 
+                        configuration, plugin integration, and deployment. Built for performance 
+                        and scalability.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Custom Design</li>
+                        <li><i class="fas fa-check"></i> Plugin Integration</li>
+                        <li><i class="fas fa-check"></i> Performance Optimization</li>
+                    </ul>
+                    <a href="#contact" class="service-link">
+                        Get Started <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="service-card featured reveal">
+                    <div class="service-badge">Most Popular</div>
+                    <div class="service-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3 class="service-title">Theme Development</h3>
+                    <p class="service-description">
+                        Custom WordPress theme development from concept to completion. 
+                        Pixel-perfect, responsive themes built with clean code and 
+                        modern development practices.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Custom Theme Design</li>
+                        <li><i class="fas fa-check"></i> Child Theme Creation</li>
+                        <li><i class="fas fa-check"></i> Theme Customization</li>
+                    </ul>
+                    <a href="#contact" class="service-link">
+                        Get Started <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-icon">
+                        <i class="fas fa-sliders-h"></i>
+                    </div>
+                    <h3 class="service-title">Website Customization</h3>
+                    <p class="service-description">
+                        Transform your existing WordPress website with custom modifications, 
+                        design improvements, and functionality enhancements to match 
+                        your evolving needs.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Layout Modifications</li>
+                        <li><i class="fas fa-check"></i> Feature Additions</li>
+                        <li><i class="fas fa-check"></i> Bug Fixes</li>
+                    </ul>
+                    <a href="#contact" class="service-link">
+                        Get Started <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="service-title">Responsive Design</h3>
+                    <p class="service-description">
+                        Ensure your website looks and functions flawlessly across all 
+                        devices - desktop, tablet, and mobile. Mobile-first approach 
+                        for optimal user experience.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Mobile-First Design</li>
+                        <li><i class="fas fa-check"></i> Cross-Browser Testing</li>
+                        <li><i class="fas fa-check"></i> Touch Optimization</li>
+                    </ul>
+                    <a href="#contact" class="service-link">
+                        Get Started <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
             </div>
-
-            <div class="service-card">
-                <h3>Website Customization</h3>
-                <p>Customize existing WordPress websites and improve performance.</p>
-            </div>
-
         </div>
     </section>
 
-    <!-- Contact -->
-    <section class="contact" id="contact">
-        <h2>Contact Me</h2>
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Portfolio</span>
+                <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
+                <p class="section-subtitle">A selection of my recent work showcasing my skills in WordPress development and design.</p>
+            </div>
+            <div class="portfolio-filters reveal">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="wordpress">WordPress</button>
+                <button class="filter-btn" data-filter="theme">Theme Dev</button>
+                <button class="filter-btn" data-filter="customization">Customization</button>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-card reveal" data-category="wordpress">
+                    <div class="portfolio-image">
+                        <div class="portfolio-image-placeholder">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-actions">
+                                <a href="#" class="portfolio-action" aria-label="Live Demo" target="_blank" rel="noopener noreferrer">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="#" class="portfolio-action" aria-label="GitHub Repository" target="_blank" rel="noopener noreferrer">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-category">WordPress</span>
+                        <h3 class="portfolio-title">E-Commerce Store</h3>
+                        <p class="portfolio-description">Full-featured WooCommerce store with custom product pages and seamless checkout experience.</p>
+                    </div>
+                </div>
+                <div class="portfolio-card reveal" data-category="theme">
+                    <div class="portfolio-image">
+                        <div class="portfolio-image-placeholder">
+                            <i class="fas fa-blog"></i>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-actions">
+                                <a href="#" class="portfolio-action" aria-label="Live Demo" target="_blank" rel="noopener noreferrer">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="#" class="portfolio-action" aria-label="GitHub Repository" target="_blank" rel="noopener noreferrer">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-category">Theme Development</span>
+                        <h3 class="portfolio-title">Custom Blog Theme</h3>
+                        <p class="portfolio-description">A modern, minimalist blog theme with advanced typography and reading experience.</p>
+                    </div>
+                </div>
+                <div class="portfolio-card reveal" data-category="customization">
+                    <div class="portfolio-image">
+                        <div class="portfolio-image-placeholder">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-actions">
+                                <a href="#" class="portfolio-action" aria-label="Live Demo" target="_blank" rel="noopener noreferrer">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="#" class="portfolio-action" aria-label="GitHub Repository" target="_blank" rel="noopener noreferrer">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-category">Customization</span>
+                        <h3 class="portfolio-title">Corporate Website</h3>
+                        <p class="portfolio-description">Complete redesign and customization of a corporate WordPress site with modern UI.</p>
+                    </div>
+                </div>
+                <div class="portfolio-card reveal" data-category="wordpress">
+                    <div class="portfolio-image">
+                        <div class="portfolio-image-placeholder">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-actions">
+                                <a href="#" class="portfolio-action" aria-label="Live Demo" target="_blank" rel="noopener noreferrer">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="#" class="portfolio-action" aria-label="GitHub Repository" target="_blank" rel="noopener noreferrer">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-category">WordPress</span>
+                        <h3 class="portfolio-title">Restaurant Website</h3>
+                        <p class="portfolio-description">Custom restaurant website with online menu, reservation system, and gallery.</p>
+                    </div>
+                </div>
+                <div class="portfolio-card reveal" data-category="theme">
+                    <div class="portfolio-image">
+                        <div class="portfolio-image-placeholder">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-actions">
+                                <a href="#" class="portfolio-action" aria-label="Live Demo" target="_blank" rel="noopener noreferrer">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="#" class="portfolio-action" aria-label="GitHub Repository" target="_blank" rel="noopener noreferrer">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-category">Theme Development</span>
+                        <h3 class="portfolio-title">Portfolio Theme</h3>
+                        <p class="portfolio-description">A sleek portfolio theme for creative professionals with smooth animations.</p>
+                    </div>
+                </div>
+                <div class="portfolio-card reveal" data-category="customization">
+                    <div class="portfolio-image">
+                        <div class="portfolio-image-placeholder">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-actions">
+                                <a href="#" class="portfolio-action" aria-label="Live Demo" target="_blank" rel="noopener noreferrer">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="#" class="portfolio-action" aria-label="GitHub Repository" target="_blank" rel="noopener noreferrer">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-category">Customization</span>
+                        <h3 class="portfolio-title">Education Portal</h3>
+                        <p class="portfolio-description">Customized LMS theme with course management and student dashboard features.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <div class="contact-box">
-            <p><strong>Phone:</strong> 01571185580</p>
-            <p><strong>Email:</strong> antarkk7110@gmail.com</p>
+    <!-- Statistics Section -->
+    <section class="stats" id="stats">
+        <div class="stats-bg-effects">
+            <div class="stats-orb stats-orb-1"></div>
+            <div class="stats-orb stats-orb-2"></div>
+        </div>
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card reveal">
+                    <div class="stat-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <div class="stat-number" data-target="50">0</div>
+                    <div class="stat-label">Projects Completed</div>
+                </div>
+                <div class="stat-card reveal">
+                    <div class="stat-icon">
+                        <i class="fas fa-smile-beam"></i>
+                    </div>
+                    <div class="stat-number" data-target="35">0</div>
+                    <div class="stat-label">Happy Clients</div>
+                </div>
+                <div class="stat-card reveal">
+                    <div class="stat-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <div class="stat-number" data-target="2">0</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-card reveal">
+                    <div class="stat-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <div class="stat-number" data-target="24">0</div>
+                    <div class="stat-label">Support Available</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Testimonials</span>
+                <h2 class="section-title">What Clients <span class="gradient-text">Say</span></h2>
+                <p class="section-subtitle">Feedback from clients who have trusted me with their web development projects.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Antar delivered an exceptional WordPress website for our business. 
+                        His attention to detail and understanding of our requirements was outstanding. 
+                        The site looks amazing and performs flawlessly."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Rahim Ahmed</h4>
+                            <span>Business Owner</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Professional, responsive, and incredibly skilled. Antar created a custom 
+                        theme that perfectly matches our brand. Highly recommend for any WordPress 
+                        development work."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Sarah Khan</h4>
+                            <span>Marketing Director</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Great work on our e-commerce site. Antar handled everything from design 
+                        to deployment with expertise. The website loads fast and our customers 
+                        love the shopping experience."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Michael Chen</h4>
+                            <span>E-Commerce Manager</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Contact</span>
+                <h2 class="section-title">Let's Work <span class="gradient-text">Together</span></h2>
+                <p class="section-subtitle">Have a project in mind? Let's discuss how I can help bring your ideas to life.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info reveal">
+                    <h3 class="contact-info-title">Get in Touch</h3>
+                    <p class="contact-info-text">
+                        I'm always excited to work on new projects. Whether you need a complete 
+                        WordPress website, a custom theme, or modifications to your existing site, 
+                        feel free to reach out.
+                    </p>
+                    <div class="contact-details">
+                        <div class="contact-detail">
+                            <div class="contact-detail-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-detail-content">
+                                <span class="detail-label">Email</span>
+                                <a href="mailto:antarkk7110@gmail.com" class="detail-value">antarkk7110@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-detail">
+                            <div class="contact-detail-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-detail-content">
+                                <span class="detail-label">Phone</span>
+                                <a href="tel:+8801571185580" class="detail-value">+880 1571-185580</a>
+                            </div>
+                        </div>
+                        <div class="contact-detail">
+                            <div class="contact-detail-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-detail-content">
+                                <span class="detail-label">Location</span>
+                                <span class="detail-value">Bangladesh</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-social">
+                        <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper reveal">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Full Name</label>
+                            <input type="text" id="name" name="name" class="form-input" placeholder="Your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-input" placeholder="your@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject" class="form-label">Subject</label>
+                            <input type="text" id="subject" name="subject" class="form-input" placeholder="Project inquiry" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea id="message" name="message" class="form-input form-textarea" placeholder="Tell me about your project..." rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-submit">
+                            <span class="btn-text">Send Message</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
-        <p>© 2026 Antar Karmaker | All Rights Reserved</p>
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <a href="#home" class="footer-logo">Antar<span>.Dev</span></a>
+                        <p class="footer-description">
+                            Professional WordPress & Theme Developer dedicated to creating 
+                            exceptional web experiences that drive business growth.
+                        </p>
+                        <div class="footer-social">
+                            <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer-links">
+                        <h4 class="footer-title">Quick Links</h4>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#skills">Skills</a></li>
+                            <li><a href="#services">Services</a></li>
+                            <li><a href="#portfolio">Portfolio</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links">
+                        <h4 class="footer-title">Services</h4>
+                        <ul>
+                            <li><a href="#services">WordPress Development</a></li>
+                            <li><a href="#services">Theme Development</a></li>
+                            <li><a href="#services">Website Customization</a></li>
+                            <li><a href="#services">Responsive Design</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links">
+                        <h4 class="footer-title">Contact</h4>
+                        <ul>
+                            <li><a href="mailto:antarkk7110@gmail.com"><i class="fas fa-envelope"></i> antarkk7110@gmail.com</a></li>
+                            <li><a href="tel:+8801571185580"><i class="fas fa-phone-alt"></i> +880 1571-185580</a></li>
+                            <li><i class="fas fa-map-marker-alt"></i> Bangladesh</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2026 Antar Karmaker. All Rights Reserved.</p>
+                    <p>Crafted with <span class="heart">&hearts;</span> using WordPress</p>
+                </div>
+            </div>
+        </div>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
