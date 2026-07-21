@@ -15,6 +15,7 @@
     const themeToggle = document.getElementById('themeToggle');
     const typingText = document.getElementById('typingText');
     const contactForm = document.getElementById('contactForm');
+    const formStatus = document.getElementById('formStatus');
     const filterBtns = document.querySelectorAll('.filter-btn');
     const portfolioCards = document.querySelectorAll('.portfolio-card');
     const navLinkItems = document.querySelectorAll('.nav-link');
@@ -22,13 +23,18 @@
     const skillProgressBars = document.querySelectorAll('.skill-progress');
     const statNumbers = document.querySelectorAll('.stat-number');
 
+    /* ---------- Reduced Motion Check ---------- */
+    var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     /* ---------- Loader ---------- */
     window.addEventListener('load', function () {
+        var delay = prefersReducedMotion ? 100 : 800;
         setTimeout(function () {
             loader.classList.add('hidden');
+            loader.setAttribute('aria-hidden', 'true');
             document.body.style.overflow = '';
             initRevealAnimations();
-        }, 1200);
+        }, delay);
     });
 
     /* ---------- Typing Effect ---------- */
@@ -45,6 +51,11 @@
     var typingSpeed = 80;
 
     function typeEffect() {
+        if (prefersReducedMotion) {
+            typingText.textContent = typingStrings[0];
+            return;
+        }
+
         var currentString = typingStrings[stringIndex];
 
         if (isDeleting) {
@@ -69,21 +80,16 @@
         setTimeout(typeEffect, typingSpeed);
     }
 
-    setTimeout(typeEffect, 1500);
+    setTimeout(typeEffect, 1200);
 
     /* ---------- Navbar Scroll ---------- */
-    var lastScrollY = 0;
-
     function handleNavbarScroll() {
         var scrollY = window.scrollY;
-
         if (scrollY > 50) {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
         }
-
-        lastScrollY = scrollY;
     }
 
     /* ---------- Back to Top ---------- */
@@ -96,7 +102,7 @@
     }
 
     backToTop.addEventListener('click', function () {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
     });
 
     /* ---------- Active Nav Link ---------- */
@@ -121,19 +127,28 @@
     }
 
     /* ---------- Mobile Menu ---------- */
-    hamburger.addEventListener('click', function () {
+    function toggleMobileMenu() {
+        var isOpen = navLinks.classList.contains('active');
         hamburger.classList.toggle('active');
         navLinks.classList.toggle('active');
+        hamburger.setAttribute('aria-expanded', !isOpen);
         document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
-    });
+    }
+
+    function closeMobileMenu() {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+    }
+
+    hamburger.addEventListener('click', toggleMobileMenu);
 
     document.querySelectorAll('.nav-link').forEach(function (link) {
-        link.addEventListener('click', function () {
-            hamburger.classList.remove('active');
-            navLinks.classList.remove('active');
-            document.body.style.overflow = '';
-        });
+        link.addEventListener('click', closeMobileMenu);
     });
+
+    document.querySelector('.nav-cta').addEventListener('click', closeMobileMenu);
 
     /* ---------- Theme Toggle ---------- */
     var currentTheme = localStorage.getItem('theme') || 'dark';
@@ -159,6 +174,13 @@
 
     /* ---------- Scroll Reveal ---------- */
     function initRevealAnimations() {
+        if (prefersReducedMotion) {
+            revealElements.forEach(function (el) {
+                el.classList.add('revealed');
+            });
+            return;
+        }
+
         var observer = new IntersectionObserver(
             function (entries) {
                 entries.forEach(function (entry) {
@@ -173,7 +195,7 @@
             },
             {
                 threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
+                rootMargin: '0px 0px -40px 0px'
             }
         );
 
@@ -190,6 +212,8 @@
         if (skillsAnimated) return;
 
         var skillsSection = document.getElementById('skills');
+        if (!skillsSection) return;
+
         var rect = skillsSection.getBoundingClientRect();
 
         if (rect.top < window.innerHeight * 0.8) {
@@ -197,10 +221,15 @@
 
             skillProgressBars.forEach(function (bar) {
                 var progress = bar.getAttribute('data-progress');
-                setTimeout(function () {
+                if (prefersReducedMotion) {
                     bar.style.width = progress + '%';
                     bar.classList.add('animated');
-                }, 200);
+                } else {
+                    setTimeout(function () {
+                        bar.style.width = progress + '%';
+                        bar.classList.add('animated');
+                    }, 200);
+                }
             });
         }
     }
@@ -212,6 +241,8 @@
         if (countersAnimated) return;
 
         var statsSection = document.getElementById('stats');
+        if (!statsSection) return;
+
         var rect = statsSection.getBoundingClientRect();
 
         if (rect.top < window.innerHeight * 0.8) {
@@ -219,6 +250,12 @@
 
             statNumbers.forEach(function (counter) {
                 var target = parseInt(counter.getAttribute('data-target'));
+
+                if (prefersReducedMotion) {
+                    counter.textContent = target + (target === 24 ? '/7' : '+');
+                    return;
+                }
+
                 var duration = 2000;
                 var startTime = null;
 
@@ -277,6 +314,9 @@
             submitBtn.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
             submitBtn.style.boxShadow = '0 4px 20px rgba(34, 197, 94, 0.4)';
 
+            formStatus.textContent = 'Your message has been sent successfully!';
+            formStatus.className = 'form-status success';
+
             contactForm.reset();
 
             setTimeout(function () {
@@ -284,6 +324,8 @@
                 submitBtn.style.pointerEvents = '';
                 submitBtn.style.background = '';
                 submitBtn.style.boxShadow = '';
+                formStatus.textContent = '';
+                formStatus.className = 'form-status';
             }, 3000);
         }, 1500);
     });
@@ -291,17 +333,36 @@
     /* ---------- Smooth Scroll for Anchor Links ---------- */
     document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            var target = document.querySelector(this.getAttribute('href'));
+            var href = this.getAttribute('href');
+            if (href === '#') return;
+
+            var target = document.querySelector(href);
             if (target) {
+                e.preventDefault();
                 var offset = 80;
                 var targetPosition = target.getBoundingClientRect().top + window.scrollY - offset;
-                window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: prefersReducedMotion ? 'auto' : 'smooth'
+                });
+
+                /* Update URL without scrolling */
+                if (history.pushState) {
+                    history.pushState(null, null, href);
+                }
             }
         });
     });
 
-    /* ---------- Scroll Event Handler ---------- */
+    /* ---------- Keyboard: Close menu on Escape ---------- */
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+            closeMobileMenu();
+            hamburger.focus();
+        }
+    });
+
+    /* ---------- Scroll Event Handler (Throttled) ---------- */
     var ticking = false;
 
     window.addEventListener('scroll', function () {
@@ -316,15 +377,20 @@
             });
             ticking = true;
         }
-    });
+    }, { passive: true });
 
     /* ---------- CV Download ---------- */
     document.getElementById('downloadCV').addEventListener('click', function (e) {
         e.preventDefault();
-        alert('Please add your CV/Resume file to enable download.');
+        formStatus.textContent = 'Please add your CV/Resume file to enable download.';
+        formStatus.className = 'form-status error';
+        setTimeout(function () {
+            formStatus.textContent = '';
+            formStatus.className = 'form-status';
+        }, 3000);
     });
 
-    /* ---------- Add fadeInUp animation ---------- */
+    /* ---------- FadeInUp Keyframes (CSS, not inline) ---------- */
     var style = document.createElement('style');
     style.textContent = '@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }';
     document.head.appendChild(style);
