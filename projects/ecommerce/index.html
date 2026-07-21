@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopVibe - Premium E-Commerce Store</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar" id="navbar">
+        <div class="nav-inner container">
+            <a href="#" class="logo">Shop<span>Vibe</span></a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#products" class="nav-link">Shop</a></li>
+                <li><a href="#categories" class="nav-link">Categories</a></li>
+                <li><a href="#deals" class="nav-link">Deals</a></li>
+                <li><a href="#testimonials" class="nav-link">Reviews</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="icon-btn search-toggle" aria-label="Search">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </button>
+                <button class="icon-btn cart-toggle" id="cartToggle" aria-label="Cart">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </button>
+                <button class="hamburger" id="hamburger" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="search-overlay" id="searchOverlay">
+        <div class="container">
+            <div class="search-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <input type="text" placeholder="Search products..." id="searchInput" autocomplete="off">
+                <button class="search-close" id="searchClose" aria-label="Close search">&times;</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Your Cart (<span id="cartCount">0</span>)</h3>
+            <button class="cart-close" id="cartClose" aria-label="Close cart">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <div class="cart-empty">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:0.3"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+                <p>Your cart is empty</p>
+            </div>
+        </div>
+        <div class="cart-footer" id="cartFooter" style="display:none;">
+            <div class="cart-total">
+                <span>Total</span>
+                <span id="cartTotal">$0.00</span>
+            </div>
+            <button class="btn-checkout">Checkout Now</button>
+        </div>
+    </div>
+    <div class="cart-overlay" id="cartOverlay"></div>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-bg">
+                <div class="hero-orb hero-orb-1"></div>
+                <div class="hero-orb hero-orb-2"></div>
+            </div>
+            <div class="container hero-grid">
+                <div class="hero-content reveal">
+                    <span class="badge">New Season 2026</span>
+                    <h1>Discover Your <span class="accent">Perfect Style</span></h1>
+                    <p>Premium curated collections for the modern lifestyle. Free shipping on orders over $99.</p>
+                    <div class="hero-btns">
+                        <a href="#products" class="btn btn-primary">Shop Collection</a>
+                        <a href="#categories" class="btn btn-ghost">Browse Categories</a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="hero-stat"><strong>2K+</strong><span>Products</span></div>
+                        <div class="hero-stat"><strong>50K+</strong><span>Happy Customers</span></div>
+                        <div class="hero-stat"><strong>4.9</strong><span>Avg Rating</span></div>
+                    </div>
+                </div>
+                <div class="hero-visual reveal">
+                    <div class="hero-card">
+                        <div class="hero-card-img" style="background:linear-gradient(135deg,#1a1a2e,#16213e);">
+                            <div class="hero-product-icon">
+                                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                            </div>
+                        </div>
+                        <div class="hero-card-info">
+                            <span class="tag">Bestseller</span>
+                            <h3>Luxury Chronograph</h3>
+                            <p class="price">$349.00</p>
+                        </div>
+                    </div>
+                    <div class="floating-card fc-1">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        <span>Secure Payment</span>
+                    </div>
+                    <div class="floating-card fc-2">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <span>4.9 Rating</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="marquee-section">
+            <div class="marquee">
+                <div class="marquee-track">
+                    <span>Free Shipping Over $99</span><span>&bull;</span>
+                    <span>30-Day Returns</span><span>&bull;</span>
+                    <span>24/7 Support</span><span>&bull;</span>
+                    <span>Authentic Products</span><span>&bull;</span>
+                    <span>Free Shipping Over $99</span><span>&bull;</span>
+                    <span>30-Day Returns</span><span>&bull;</span>
+                    <span>24/7 Support</span><span>&bull;</span>
+                    <span>Authentic Products</span><span>&bull;</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="categories" id="categories">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-tag">Categories</span>
+                    <h2>Shop by <span class="accent">Category</span></h2>
+                </div>
+                <div class="cat-grid reveal">
+                    <a href="#" class="cat-card" style="--cat-color:#667eea;">
+                        <div class="cat-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+                        </div>
+                        <h3>Accessories</h3>
+                        <span>120+ items</span>
+                    </a>
+                    <a href="#" class="cat-card" style="--cat-color:#f59e0b;">
+                        <div class="cat-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                        </div>
+                        <h3>Watches</h3>
+                        <span>85+ items</span>
+                    </a>
+                    <a href="#" class="cat-card" style="--cat-color:#ec4899;">
+                        <div class="cat-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                        </div>
+                        <h3>Fashion</h3>
+                        <span>200+ items</span>
+                    </a>
+                    <a href="#" class="cat-card" style="--cat-color:#22c55e;">
+                        <div class="cat-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+                        </div>
+                        <h3>Lifestyle</h3>
+                        <span>95+ items</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="products" id="products">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-tag">Trending</span>
+                    <h2>Featured <span class="accent">Products</span></h2>
+                </div>
+                <div class="filter-bar reveal">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="popular">Popular</button>
+                    <button class="filter-btn" data-filter="new">New Arrivals</button>
+                    <button class="filter-btn" data-filter="sale">On Sale</button>
+                </div>
+                <div class="products-grid" id="productsGrid"></div>
+            </div>
+        </section>
+
+        <section class="deals" id="deals">
+            <div class="container">
+                <div class="deals-banner reveal">
+                    <div class="deals-content">
+                        <span class="badge badge-light">Limited Time Offer</span>
+                        <h2>Up to <span class="accent">50% Off</span> Spring Collection</h2>
+                        <p>Hurry up! Sale ends in:</p>
+                        <div class="countdown" id="countdown">
+                            <div class="countdown-item"><span id="days">02</span><small>Days</small></div>
+                            <div class="countdown-item"><span id="hours">14</span><small>Hours</small></div>
+                            <div class="countdown-item"><span id="minutes">36</span><small>Min</small></div>
+                            <div class="countdown-item"><span id="seconds">48</span><small>Sec</small></div>
+                        </div>
+                        <a href="#products" class="btn btn-primary">Shop the Sale</a>
+                    </div>
+                    <div class="deals-visual">
+                        <div class="deal-circle">
+                            <span class="deal-percent">50%</span>
+                            <span class="deal-label">OFF</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials" id="testimonials">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-tag">Reviews</span>
+                    <h2>What Customers <span class="accent">Say</span></h2>
+                </div>
+                <div class="reviews-grid reveal">
+                    <div class="review-card">
+                        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <p>"Absolutely love the quality! The watch I ordered exceeded my expectations. Fast shipping too."</p>
+                        <div class="reviewer">
+                            <div class="avatar" style="background:#667eea;">JD</div>
+                            <div><strong>James D.</strong><span>Verified Buyer</span></div>
+                        </div>
+                    </div>
+                    <div class="review-card">
+                        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <p>"Best online shopping experience I've had. The customer service team was incredibly helpful."</p>
+                        <div class="reviewer">
+                            <div class="avatar" style="background:#ec4899;">SM</div>
+                            <div><strong>Sarah M.</strong><span>Verified Buyer</span></div>
+                        </div>
+                    </div>
+                    <div class="review-card">
+                        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+                        <p>"Great products at fair prices. The leather bag I bought is gorgeous and well-crafted."</p>
+                        <div class="reviewer">
+                            <div class="avatar" style="background:#22c55e;">AK</div>
+                            <div><strong>Ahmed K.</strong><span>Verified Buyer</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="newsletter">
+            <div class="container">
+                <div class="newsletter-box reveal">
+                    <h2>Stay in the Loop</h2>
+                    <p>Get 10% off your first order when you subscribe to our newsletter.</p>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="email" placeholder="Enter your email address" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">Shop<span>Vibe</span></a>
+                    <p>Premium e-commerce experience curated for the modern lifestyle.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Shop</h4>
+                    <a href="#">New Arrivals</a>
+                    <a href="#">Best Sellers</a>
+                    <a href="#">Sale</a>
+                    <a href="#">All Products</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Help</h4>
+                    <a href="#">FAQ</a>
+                    <a href="#">Shipping</a>
+                    <a href="#">Returns</a>
+                    <a href="#">Contact</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <a href="#">About Us</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 ShopVibe. Demo by Antar Karmaker.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
