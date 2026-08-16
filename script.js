@@ -219,8 +219,9 @@
         if (rect.top < window.innerHeight * 0.8) {
             skillsAnimated = true;
 
-            skillProgressBars.forEach(function (bar) {
+            skillProgressBars.forEach(function (bar, index) {
                 var progress = bar.getAttribute('data-progress');
+                var staggerDelay = index * 120;
                 if (prefersReducedMotion) {
                     bar.style.width = progress + '%';
                     bar.classList.add('animated');
@@ -228,7 +229,7 @@
                     setTimeout(function () {
                         bar.style.width = progress + '%';
                         bar.classList.add('animated');
-                    }, 200);
+                    }, 300 + staggerDelay);
                 }
             });
         }
